@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nitip Makan Pro V12 (Material You)</title>
+    <title>Nitip Makan Pro V13 (Compact & Grouped)</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -14,222 +14,148 @@
     <style>
         :root {
             /* Material You Palette (Blue Theme) */
-            --md-sys-color-primary: #0061a4;
-            --md-sys-color-on-primary: #ffffff;
-            --md-sys-color-primary-container: #d1e4ff;
-            --md-sys-color-on-primary-container: #001d36;
-            --md-sys-color-secondary: #535f70;
-            --md-sys-color-secondary-container: #d7e3f7;
-            --md-sys-color-tertiary: #6b5778;
-            --md-sys-color-tertiary-container: #f2daff;
-            --md-sys-color-error: #ba1a1a;
-            --md-sys-color-error-container: #ffdad6;
-            --md-sys-color-background: #fdfcff;
-            --md-sys-color-surface: #fdfcff;
-            --md-sys-color-surface-variant: #dfe2eb;
-            --md-sys-color-on-surface: #1a1c1e;
-            --md-sys-color-outline: #73777f;
-            
-            --radius-l: 24px;
-            --radius-m: 16px;
-            --radius-s: 12px;
-            --elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-            --elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+            --md-primary: #0061a4;
+            --md-surface: #ffffff;
+            --md-bg: #f0f4f8;
+            --md-outline: #73777f;
+            --radius: 16px; /* Dikurangi dari 24px */
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { 
             font-family: 'Google Sans', 'Roboto', sans-serif; 
-            background-color: #f0f4f8; 
+            background-color: var(--md-bg); 
             margin: 0; 
-            padding: 16px; 
-            color: var(--md-sys-color-on-surface);
+            padding: 12px; /* Padding body dikurangi */
+            color: #1a1c1e;
+            font-size: 14px; /* Font dasar lebih kecil */
         }
 
-        /* --- Components --- */
-        .container { max-width: 800px; margin: 0 auto; }
+        .container { max-width: 600px; margin: 0 auto; }
         
         .card {
-            background: var(--md-sys-color-surface);
-            border-radius: var(--radius-l);
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: var(--elevation-1);
-            transition: 0.3s;
+            background: var(--md-surface);
+            border-radius: var(--radius);
+            padding: 16px; /* Padding card dikurangi drastis */
+            margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .header-title {
-            text-align: center;
-            margin-bottom: 24px;
-        }
+        /* HEADER */
         .header-title h1 {
-            font-size: 24px; margin: 0; color: var(--md-sys-color-primary);
+            font-size: 20px; margin: 0 0 4px 0; color: var(--md-primary);
             display: flex; align-items: center; justify-content: center; gap: 8px;
         }
         .chip {
-            background: var(--md-sys-color-primary-container);
-            color: var(--md-sys-color-on-primary-container);
-            padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: 500;
-            display: inline-block; margin-top: 8px;
+            background: #d1e4ff; color: #001d36;
+            padding: 2px 10px; border-radius: 50px; font-size: 11px; font-weight: 600;
         }
 
-        /* --- Form Input Material Style --- */
-        .input-group {
-            display: flex; gap: 12px; flex-wrap: wrap;
-        }
-        .input-wrapper {
-            position: relative; flex: 1; min-width: 140px;
-        }
+        /* INPUTS - LEBIH COMPACT */
+        .input-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .input-wrapper { position: relative; flex: 1; min-width: 100px; }
+        
         .m-input {
-            width: 100%;
-            padding: 16px 16px;
-            border: 1px solid var(--md-sys-color-outline);
-            border-radius: var(--radius-s);
-            font-family: inherit; font-size: 16px;
-            background: transparent;
-            outline: none;
-            transition: 0.2s;
+            width: 100%; padding: 10px 12px; /* Input lebih tipis */
+            border: 1px solid var(--md-outline);
+            border-radius: 8px;
+            font-family: inherit; font-size: 14px;
+            outline: none; background: transparent;
         }
-        .m-input:focus {
-            border-color: var(--md-sys-color-primary);
-            border-width: 2px;
-            padding: 15px 15px; /* Compesate border width */
-        }
+        .m-input:focus { border-color: var(--md-primary); border-width: 2px; padding: 9px 11px; }
         .input-wrapper label {
-            position: absolute; left: 14px; top: 16px;
-            background: var(--md-sys-color-surface);
-            padding: 0 4px; color: var(--md-sys-color-outline);
-            font-size: 16px; transition: 0.2s; pointer-events: none;
+            position: absolute; left: 10px; top: 10px;
+            background: var(--md-surface); padding: 0 4px; 
+            color: var(--md-outline); font-size: 14px; pointer-events: none; transition: 0.2s;
         }
         .m-input:focus ~ label, .m-input:not(:placeholder-shown) ~ label {
-            top: -10px; font-size: 12px; color: var(--md-sys-color-primary); font-weight: 500;
+            top: -9px; font-size: 11px; color: var(--md-primary); font-weight: 600;
         }
 
-        /* --- Buttons --- */
+        /* BUTTONS */
         .btn {
-            border: none; cursor: pointer; font-family: 'Google Sans', sans-serif;
-            padding: 0 24px; height: 48px; border-radius: 50px;
+            border: none; cursor: pointer; font-family: inherit;
+            height: 40px; border-radius: 20px; /* Tombol lebih kecil */
             font-size: 14px; font-weight: 500;
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            transition: 0.2s;
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
         }
-        .btn-primary {
-            background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary);
-        }
-        .btn-primary:active { transform: scale(0.95); }
-        .btn-tonal {
-            background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-primary-container);
-        }
-        .btn-icon {
-            width: 40px; height: 40px; padding: 0; border-radius: 50%;
-            background: transparent; color: var(--md-sys-color-outline);
-        }
-        .btn-icon:hover { background: rgba(0,0,0,0.05); }
-        .btn-icon.danger { color: var(--md-sys-color-error); }
+        .btn-primary { background: var(--md-primary); color: white; padding: 0 20px; }
+        .btn-tonal { background: #d7e3f7; color: #001d36; padding: 0 16px; font-size: 12px; height: 32px; }
+        .btn-icon { background: transparent; color: #ba1a1a; width: 32px; height: 32px; padding: 0; border-radius: 50%; }
 
-        /* --- List & Table --- */
-        .list-header {
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
-        }
+        /* LIST ITEMS - LEBIH SLIM */
         .order-card {
-            background: #fff;
-            border: 1px solid var(--md-sys-color-surface-variant);
-            border-radius: var(--radius-m);
-            padding: 16px; margin-bottom: 8px;
-            display: flex; flex-direction: column; gap: 8px;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0; /* Jarak antar item lebih rapat */
+            display: flex; flex-direction: column; gap: 4px;
         }
-        .row-top { display: flex; justify-content: space-between; align-items: center; }
-        .row-content { display: flex; flex-direction: column; gap: 4px; }
+        .order-card:last-child { border-bottom: none; }
         
-        /* Inline Edit Styling */
-        .edit-area {
-            width: 100%; border: none; background: transparent; font-family: inherit; 
-            resize: none; overflow: hidden; padding: 0; color: #444; font-size: 15px;
-        }
-        .edit-area.title-edit { font-weight: 500; font-size: 16px; color: #000; }
-        .edit-area.note-edit { font-size: 13px; color: #666; font-style: italic; }
-        .edit-area:focus { outline: none; background: #f0f8ff; border-bottom: 1px solid var(--md-sys-color-primary); }
+        .row-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        
+        /* Edit Areas */
+        .edit-area { border: none; background: transparent; font-family: inherit; resize: none; width: 100%; padding: 0; }
+        .name-display { font-weight: 700; color: var(--md-primary); font-size: 14px; }
+        .title-edit { font-weight: 500; font-size: 14px; color: #1a1c1e; }
+        .note-edit { font-size: 12px; color: #666; font-style: italic; }
+        
+        .price-wrapper { display: flex; align-items: center; gap: 2px; font-size: 14px; font-weight: 600; color: var(--md-primary); }
+        .price-edit { border: none; text-align: right; width: 70px; font-weight: bold; color: inherit; outline: none; }
 
-        .price-tag {
-            font-weight: 700; color: var(--md-sys-color-primary); font-size: 16px;
-            background: transparent; border: none; text-align: right; width: 100px;
-        }
+        /* SUMMARY TABLE */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th, td { padding: 6px 4px; border-bottom: 1px solid #eee; }
+        th { text-align: left; color: #666; font-weight: 500; font-size: 11px; text-transform: uppercase; }
 
-        /* --- Summary Cards --- */
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; margin-top: 16px;
-        }
-        .stat-box {
-            padding: 16px; border-radius: var(--radius-m); color: white; text-align: center;
-        }
+        /* STATS */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+        .stat-box { padding: 10px; border-radius: 12px; color: white; text-align: center; }
+        .stat-val { font-size: 15px; font-weight: bold; }
+        .stat-lbl { font-size: 10px; opacity: 0.9; }
+        
         .bg-orange { background: linear-gradient(135deg, #FFB74D, #F57C00); }
         .bg-green { background: linear-gradient(135deg, #81C784, #388E3C); }
         .bg-blue { background: linear-gradient(135deg, #64B5F6, #1976D2); }
         .bg-red { background: linear-gradient(135deg, #E57373, #D32F2F); }
 
-        /* --- Rekening & Footer --- */
-        .rek-box {
-            background: var(--md-sys-color-secondary-container);
-            color: var(--md-sys-color-on-primary-container);
-            padding: 16px; border-radius: var(--radius-m);
-            display: flex; align-items: center; gap: 12px; font-weight: 500;
-        }
-        .rek-input {
-            border: none; background: transparent; font-weight: bold; flex: 1; font-size: 15px;
-            color: var(--md-sys-color-on-primary-container);
-        }
-
-        /* --- Fab / Floating Action --- */
-        .fab-container {
-            display: flex; justify-content: center; gap: 12px; margin-top: 24px;
-        }
-
-        /* --- Print Mode --- */
+        /* PRINT */
         @media print {
-            body { background: white; padding: 0; }
-            .no-print, .input-group, .btn { display: none !important; }
-            .card { box-shadow: none; padding: 0; margin: 0; border: none; }
-            .order-card { border: 1px solid #ddd; break-inside: avoid; }
-            .edit-area { resize: none; overflow: visible; white-space: pre-wrap; height: auto !important; }
-            .stat-box { color: black !important; border: 1px solid #000; background: none !important; }
+            .no-print, .input-group, .fab-container { display: none !important; }
+            body, .card { background: white; padding: 0; box-shadow: none; }
+            .order-card { break-inside: avoid; border: 1px solid #ddd; padding: 5px; margin-bottom: 5px; border-radius: 4px; }
         }
         
-        /* --- Loading --- */
-        #loading { text-align: center; color: var(--md-sys-color-primary); margin: 20px 0; }
-        .spin { animation: rotation 1s infinite linear; font-size: 32px; }
-        @keyframes rotation { from { transform: rotate(0deg); } to { transform: rotate(359deg); } }
+        #loading { text-align: center; color: var(--md-primary); margin: 10px 0; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <div class="container" id="appArea">
     
-    <div class="header-title">
-        <h1>
-            <span class="material-symbols-rounded">lunch_dining</span>
-            Nitip Makan Pro
-        </h1>
-        <span class="chip">V12: Supabase + Material You</span>
+    <div style="text-align: center; margin-bottom: 16px;">
+        <div class="header-title">
+            <h1><span class="material-symbols-rounded">lunch_dining</span> Nitip Makan</h1>
+            <span class="chip">V13 Compact & Grouped</span>
+        </div>
     </div>
 
-    <div class="card no-print" style="background: var(--md-sys-color-surface);">
-        <h3 style="margin-top:0; font-size:16px; color:var(--md-sys-color-primary);">Tambah Pesanan</h3>
+    <div class="card no-print">
         <div class="input-group">
-            <div class="input-wrapper">
+            <div class="input-wrapper" style="flex: 1.5;">
                 <input type="text" class="m-input" id="inName" placeholder=" " autocomplete="off">
-                <label>Nama</label>
+                <label>Nama (ex: April)</label>
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" style="flex: 2;">
                 <input type="text" class="m-input" id="inItem" placeholder=" " autocomplete="off">
-                <label>Menu</label>
+                <label>Menu Makanan</label>
             </div>
         </div>
-        <div class="input-group" style="margin-top: 12px;">
+        <div class="input-group" style="margin-top: 8px;">
             <div class="input-wrapper" style="flex: 2;">
                 <input type="text" class="m-input" id="inNote" placeholder=" " autocomplete="off">
                 <label>Catatan (Opsional)</label>
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" style="flex: 1;">
                 <input type="tel" class="m-input" id="inPrice" placeholder=" " onkeyup="formatRupiah(this)">
                 <label>Harga</label>
             </div>
@@ -239,83 +165,65 @@
         </div>
     </div>
 
-    <div id="loading"><span class="material-symbols-rounded spin">sync</span></div>
+    <div id="loading">Memuat database...</div>
 
     <div class="card">
-        <div class="list-header">
-            <h3 style="margin:0; font-size:18px;">Daftar Pesanan</h3>
-            <button class="btn btn-tonal no-print" style="height: 36px; padding: 0 16px; font-size: 12px;" onclick="resetAll()">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding-bottom:5px; border-bottom:2px solid #f0f4f8;">
+            <h3 style="margin:0; font-size:16px;">Daftar Pesanan</h3>
+            <button class="btn btn-tonal no-print" onclick="resetAll()">
                 <span class="material-symbols-rounded" style="font-size:16px">delete_sweep</span> Reset
             </button>
         </div>
         
-        <div id="orderList">
-            </div>
+        <div id="orderList"></div>
     </div>
 
     <div class="card">
-        <div class="list-header">
-            <h3 style="margin:0; font-size:18px;">Kasir & Ringkasan</h3>
-            <div class="no-print" style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:12px;">Tax(%)</span>
-                <input type="number" id="taxInput" value="0" style="width:50px; padding:5px; border-radius:8px; border:1px solid #ccc;" oninput="renderSummary()">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <h3 style="margin:0; font-size:16px;">Kasir</h3>
+            <div class="no-print" style="font-size:12px; display:flex; align-items:center; gap:4px;">
+                Tax % <input type="number" id="taxInput" value="0" style="width:40px; text-align:center; border:1px solid #ccc; border-radius:4px;" oninput="renderSummary()">
             </div>
         </div>
 
-        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
-            <thead style="border-bottom: 2px solid #eee;">
-                <tr>
-                    <th style="text-align:left; padding:8px;">Nama</th>
-                    <th style="text-align:right; padding:8px;">Total</th>
-                    <th style="text-align:right; padding:8px;">Bayar</th>
-                    <th style="text-align:center; padding:8px;">Status</th>
-                </tr>
-            </thead>
+        <table id="summaryTable">
+            <thead><tr><th>Nama</th><th style="text-align:right">Total</th><th style="text-align:right">Bayar</th><th>Sts</th></tr></thead>
             <tbody id="summaryBody"></tbody>
         </table>
 
         <div class="stats-grid">
             <div class="stat-box bg-orange">
-                <div style="font-size:12px; opacity:0.9;">Total Tagihan</div>
-                <div style="font-size:18px; font-weight:bold;" id="txtTotalBill">0</div>
+                <div class="stat-lbl">Tagihan</div>
+                <div class="stat-val" id="txtTotalBill">0</div>
             </div>
             <div class="stat-box bg-green">
-                <div style="font-size:12px; opacity:0.9;">Uang Terkumpul</div>
-                <div style="font-size:18px; font-weight:bold;" id="txtTotalPaid">0</div>
+                <div class="stat-lbl">Terkumpul</div>
+                <div class="stat-val" id="txtTotalPaid">0</div>
             </div>
             <div class="stat-box bg-blue" id="boxChange">
-                <div style="font-size:12px; opacity:0.9;">Sisa Uang</div>
-                <div style="font-size:18px; font-weight:bold;" id="txtTotalChange">0</div>
+                <div class="stat-lbl">Sisa</div>
+                <div class="stat-val" id="txtTotalChange">0</div>
             </div>
         </div>
     </div>
 
-    <div class="rek-box no-print">
+    <div class="card no-print" style="display:flex; align-items:center; gap:8px; background:#e8def8; color:#1d192b;">
         <span class="material-symbols-rounded">credit_card</span>
-        <input type="text" class="rek-input" id="rekInfo" placeholder="Info Rekening (Klik untuk edit)..." oninput="saveRek()">
+        <input type="text" id="rekInfo" placeholder="Info Rekening..." oninput="saveRek()" 
+            style="border:none; background:transparent; width:100%; font-weight:bold; color:#1d192b; outline:none;">
     </div>
 
-    <div class="fab-container no-print">
-        <button class="btn btn-tonal" onclick="copyWA()" style="background:#25D366; color:white;">
-            <span class="material-symbols-rounded">share</span> WA
-        </button>
-        <button class="btn btn-tonal" onclick="downloadPDF()" style="background:#ba1a1a; color:white;">
-            <span class="material-symbols-rounded">picture_as_pdf</span> PDF
-        </button>
-        <button class="btn btn-tonal" onclick="window.print()">
-            <span class="material-symbols-rounded">print</span> Print
-        </button>
-    </div>
-    
-    <div style="text-align:center; margin-top:30px; color:#aaa; font-size:12px;">
-        Powered by Supabase & Material You
+    <div class="no-print" style="display:flex; justify-content:center; gap:10px; margin-top:20px;">
+        <button class="btn btn-tonal" style="background:#25D366; color:white;" onclick="copyWA()">WA</button>
+        <button class="btn btn-tonal" style="background:#ba1a1a; color:white;" onclick="downloadPDF()">PDF</button>
+        <button class="btn btn-tonal" onclick="window.print()">Print</button>
     </div>
 
 </div>
 
 <script>
-    // --- KONFIGURASI SUPABASE ---
-    // GANTI DENGAN DATA DARI DASHBOARD SUPABASE KAMU
+    // --- KONFIGURASI SUPABASE (DARI GAMBAR KAMU) ---
+    // Pastikan ini sesuai dengan screenshot
     const SUPABASE_URL = 'https://ramoxhufekztfngfwiwm.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_czTPuVoyDqvlxOdpHrgwaw_iSnDhgsP';
 
@@ -325,25 +233,23 @@
     let globalOrders = [];
 
     // --- UTILS ---
-    function formatRupiah(el) {
+    const formatRupiah = (el) => {
         let val = el.value.replace(/[^0-9]/g, '');
         el.value = val !== "" ? parseInt(val, 10).toLocaleString('id-ID') : "";
-    }
-    
-    function cleanNumber(str) {
-        if (!str) return 0;
-        if (typeof str === 'number') return str;
-        return parseFloat(str.replace(/\./g, '')) || 0;
-    }
+    };
+    const cleanNumber = (str) => typeof str === 'number' ? str : parseFloat(str?.replace(/\./g, '') || 0);
+    const autoResize = (el) => { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; };
 
-    function autoResize(el) {
-        el.style.height = 'auto';
-        el.style.height = el.scrollHeight + 'px';
-    }
-
-    // --- CORE DATABASE FUNCTIONS ---
+    // --- DATABASE FUNCTIONS ---
     async function fetchOrders() {
-        const { data, error } = await db.from('orders').select('*').order('created_at', { ascending: true });
+        // PERBAIKAN LOGIC PENTING: 
+        // .order('name') agar nama yang sama nempel berurutan (Grouping)
+        // .order('created_at') agar urutan waktu tetap terjaga dalam nama yang sama
+        const { data, error } = await db.from('orders')
+            .select('*')
+            .order('name', { ascending: true }) 
+            .order('created_at', { ascending: true });
+
         if(error) console.error(error);
         else {
             globalOrders = data;
@@ -355,10 +261,7 @@
 
     // Realtime Listener
     db.channel('orders_channel')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, payload => {
-        // Simple strategy: Reload all on change to keep sync perfect
-        fetchOrders(); 
-    })
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => fetchOrders())
     .subscribe();
 
     // Add Order
@@ -370,9 +273,11 @@
 
         if(!name || !item) { alert("Nama & Menu wajib diisi!"); return; }
 
+        // Kirim ke database
         const { error } = await db.from('orders').insert({ name, item, note, price });
         
         if(!error) {
+            // Jangan hapus nama agar bisa input cepat untuk orang yang sama
             document.getElementById('inItem').value = '';
             document.getElementById('inNote').value = '';
             document.getElementById('inPrice').value = '';
@@ -380,70 +285,62 @@
         } else { alert("Gagal kirim: " + error.message); }
     });
 
-    // Update
     window.updateData = async (id, field, value) => {
         await db.from('orders').update({ [field]: value }).eq('id', id);
     };
 
-    // Delete
     window.deleteOrder = async (id) => {
-        if(confirm("Hapus pesanan ini?")) {
-            await db.from('orders').delete().eq('id', id);
-        }
+        if(confirm("Hapus pesanan ini?")) await db.from('orders').delete().eq('id', id);
     };
 
-    // Reset All
     window.resetAll = async () => {
-        if(confirm("Yakin hapus SEMUA data?")) {
-            // Delete all rows
-            const { error } = await db.from('orders').delete().neq('id', 0); 
-        }
+        if(confirm("Yakin hapus SEMUA data?")) await db.from('orders').delete().neq('id', 0); 
     };
 
-    // --- RENDERING UI ---
+    // --- RENDER LIST (UI COMPACT) ---
     function renderList() {
         const container = document.getElementById('orderList');
         container.innerHTML = '';
         
         if(globalOrders.length === 0) {
-            container.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">Belum ada pesanan.</div>';
+            container.innerHTML = '<div style="text-align:center; padding:10px; color:#999; font-size:12px;">Belum ada pesanan.</div>';
             return;
         }
+
+        let lastInitial = '';
 
         globalOrders.forEach(o => {
             const div = document.createElement('div');
             div.className = 'order-card';
+            
+            // Render
             div.innerHTML = `
                 <div class="row-top">
-                    <strong style="font-size:16px; color:var(--md-sys-color-primary);">${o.name}</strong>
-                    <div style="display:flex; align-items:center;">
-                        <span style="font-size:12px; margin-right:4px;">Rp</span>
-                        <input type="text" class="price-tag" value="${o.price.toLocaleString('id-ID')}" 
-                            onkeyup="formatRupiah(this)" onchange="updateData(${o.id}, 'price', cleanNumber(this.value))">
+                    <div style="flex:1">
+                        <div class="name-display">${o.name}</div>
+                        <textarea class="edit-area title-edit" rows="1" oninput="autoResize(this)" 
+                            onchange="updateData(${o.id}, 'item', this.value)">${o.item}</textarea>
+                        <textarea class="edit-area note-edit" rows="1" placeholder="+catatan" oninput="autoResize(this)" 
+                            onchange="updateData(${o.id}, 'note', this.value)">${o.note || ''}</textarea>
                     </div>
-                </div>
-                <div class="row-content">
-                    <textarea class="edit-area title-edit" rows="1" oninput="autoResize(this)" 
-                        onchange="updateData(${o.id}, 'item', this.value)">${o.item}</textarea>
-                    
-                    <textarea class="edit-area note-edit" rows="1" placeholder="Tambah catatan..." oninput="autoResize(this)" 
-                        onchange="updateData(${o.id}, 'note', this.value)">${o.note || ''}</textarea>
-                </div>
-                <div style="text-align:right; margin-top:4px;" class="no-print">
-                     <button class="btn-icon danger" onclick="deleteOrder(${o.id})">
-                        <span class="material-symbols-rounded" style="font-size:18px;">delete</span>
-                     </button>
+                    <div style="text-align:right">
+                        <div class="price-wrapper">
+                            <span style="font-size:10px">Rp</span>
+                            <input type="text" class="price-edit" value="${o.price.toLocaleString('id-ID')}" 
+                                onkeyup="formatRupiah(this)" onchange="updateData(${o.id}, 'price', cleanNumber(this.value))">
+                        </div>
+                        <button class="btn-icon no-print" style="margin-top:4px; font-size:18px;" onclick="deleteOrder(${o.id})">
+                            <span class="material-symbols-rounded" style="font-size:16px">close</span>
+                        </button>
+                    </div>
                 </div>
             `;
             container.appendChild(div);
-            // Init resize
-            setTimeout(() => {
-                autoResize(div.querySelector('.title-edit'));
-                autoResize(div.querySelector('.note-edit'));
-            }, 50);
+            setTimeout(() => { autoResize(div.querySelector('.title-edit')); autoResize(div.querySelector('.note-edit')); }, 50);
         });
     }
 
+    // --- SUMMARY ---
     window.renderSummary = function() {
         const taxRate = parseFloat(document.getElementById('taxInput').value) || 0;
         const tbody = document.getElementById('summaryBody');
@@ -470,65 +367,61 @@
             const diff = p.paid - finalBill;
             let status = `<span style="color:#ccc;">-</span>`;
             if(p.paid > 0) {
-                if(diff >= 0) status = `<span style="color:green; font-weight:bold; font-size:12px;">Kembali Rp ${diff.toLocaleString('id-ID')}</span>`;
-                else status = `<span style="color:red; font-weight:bold; font-size:12px;">Kurang Rp ${Math.abs(diff).toLocaleString('id-ID')}</span>`;
+                status = diff >= 0 
+                    ? `<span style="color:green; font-weight:bold;">+${diff.toLocaleString('id-ID')}</span>` 
+                    : `<span style="color:red; font-weight:bold;">-${Math.abs(diff).toLocaleString('id-ID')}</span>`;
             }
 
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td style="padding:8px;">${p.name}</td>
-                <td style="text-align:right; padding:8px;">${finalBill.toLocaleString('id-ID')}</td>
-                <td style="text-align:right; padding:8px;">
+                <td>${p.name}</td>
+                <td style="text-align:right">${finalBill.toLocaleString('id-ID')}</td>
+                <td style="text-align:right">
                     <input type="text" value="${p.paid > 0 ? p.paid.toLocaleString('id-ID') : ''}" 
-                        style="width:80px; border:1px solid #ddd; border-radius:4px; padding:4px; text-align:right;"
+                        style="width:60px; border:1px solid #ddd; border-radius:4px; padding:2px; text-align:right; font-size:12px;"
                         onkeyup="formatRupiah(this)" onchange="updatePayment('${k}', this.value, '${p.ids.join(',')}')">
                 </td>
-                <td style="text-align:center; padding:8px;">${status}</td>
+                <td style="text-align:center; font-size:10px;">${status}</td>
             `;
             tbody.appendChild(tr);
         }
 
-        document.getElementById('txtTotalBill').innerText = `Rp ${totalBill.toLocaleString('id-ID')}`;
-        document.getElementById('txtTotalPaid').innerText = `Rp ${totalPaid.toLocaleString('id-ID')}`;
+        document.getElementById('txtTotalBill').innerText = totalBill.toLocaleString('id-ID');
+        document.getElementById('txtTotalPaid').innerText = totalPaid.toLocaleString('id-ID');
         
         const change = totalPaid - totalBill;
         const boxChange = document.getElementById('boxChange');
-        const txtChange = document.getElementById('txtTotalChange');
         
         if(change < 0) {
             boxChange.className = 'stat-box bg-red';
-            txtChange.innerText = `Nombok Rp ${Math.abs(change).toLocaleString('id-ID')}`;
+            document.getElementById('txtTotalChange').innerText = Math.abs(change).toLocaleString('id-ID');
         } else {
             boxChange.className = 'stat-box bg-blue';
-            txtChange.innerText = `Rp ${change.toLocaleString('id-ID')}`;
+            document.getElementById('txtTotalChange').innerText = change.toLocaleString('id-ID');
         }
     }
 
     window.updatePayment = async (key, val, idsStr) => {
         const amount = cleanNumber(val);
         const ids = idsStr.split(',');
-        // Set all to 0 first, then set first item to amount (simplified logic)
-        // In real SQL apps, maybe better to have separate 'users' table, but this works for flat orders
         for(let i=0; i<ids.length; i++) {
-            const pay = (i === 0) ? amount : 0;
-            await db.from('orders').update({ paid: pay }).eq('id', ids[i]);
+            await db.from('orders').update({ paid: (i===0 ? amount : 0) }).eq('id', ids[i]);
         }
     };
 
-    // --- EXTRAS ---
-    window.saveRek = () => localStorage.setItem('rekInfoV2', document.getElementById('rekInfo').value);
-    if(localStorage.getItem('rekInfoV2')) document.getElementById('rekInfo').value = localStorage.getItem('rekInfoV2');
+    window.saveRek = () => localStorage.setItem('rekInfoV3', document.getElementById('rekInfo').value);
+    if(localStorage.getItem('rekInfoV3')) document.getElementById('rekInfo').value = localStorage.getItem('rekInfoV3');
 
+    // EXPORTS
     window.copyWA = () => {
         const taxRate = parseFloat(document.getElementById('taxInput').value) || 0;
-        const rek = document.getElementById('rekInfo').value;
         let text = "*LIST NITIP MAKAN*\n------------------\n";
-        
         let grouped = {};
+        
         globalOrders.forEach(o => {
             const k = o.name.toLowerCase();
             if(!grouped[k]) grouped[k] = {name: o.name, items:[], total:0, paid:0};
-            grouped[k].items.push(`${o.item} (${o.price.toLocaleString('id-ID')})`);
+            grouped[k].items.push(`${o.item} (${o.price/1000}k)`); // Format 10k biar pendek
             grouped[k].total += o.price;
             grouped[k].paid += (o.paid || 0);
         });
@@ -537,29 +430,25 @@
             const p = grouped[k];
             const tax = p.total * (taxRate/100);
             const bill = p.total + tax;
-            text += `*${p.name}* (Total: ${bill.toLocaleString('id-ID')})\n`;
-            p.items.forEach(i => text += ` • ${i}\n`);
-            if(p.paid > 0) {
-                const diff = p.paid - bill;
-                text += diff >= 0 ? ` ✅ Lunas (Kembali ${diff.toLocaleString('id-ID')})\n` : ` ❌ Kurang ${Math.abs(diff).toLocaleString('id-ID')}\n`;
-            }
-            text += "\n";
+            const diff = p.paid - bill;
+            
+            text += `*${p.name}* : ${bill.toLocaleString('id-ID')}\n`;
+            text += `  ${p.items.join(', ')}\n`;
+            if(p.paid > 0) text += diff >= 0 ? `  (Lunas, sisa ${diff})\n` : `  (Kurang ${Math.abs(diff)})\n`;
         }
         text += "------------------\n";
-        text += `*TOTAL TAGIHAN: ${document.getElementById('txtTotalBill').innerText}*\n`;
-        if(rek) text += `Transfer: ${rek}`;
+        text += `*TOTAL: ${document.getElementById('txtTotalBill').innerText}*\n`;
+        if(document.getElementById('rekInfo').value) text += `\n${document.getElementById('rekInfo').value}`;
         
-        navigator.clipboard.writeText(text).then(() => alert("Teks WA Disalin!"));
+        navigator.clipboard.writeText(text).then(() => alert("Disalin!"));
     };
 
     window.downloadPDF = () => {
         const el = document.getElementById('appArea');
-        html2pdf().set({ margin: 10, filename: 'Rekap_Makan.pdf' }).from(el).save();
+        html2pdf().set({ margin: 5, filename: 'Rekap.pdf', jsPDF: { format: 'a5' } }).from(el).save();
     }
 
-    // Init Load
-    fetchOrders();
-
+    fetchOrders(); // Init
 </script>
 
 </body>
