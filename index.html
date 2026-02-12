@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nitip Makan Pro V15 (Compact & Clear Status)</title>
+    <title>Nitip Makan Pro V15 (Fixed Bayar)</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -16,35 +16,29 @@
             --bg: #f0f4f8;
             --surface: #ffffff;
             --outline: #73777f;
-            --radius: 8px; /* Radius lebih kecil biar kotak dikit */
+            --radius: 8px;
         }
 
-        /* FONT LEBIH KECIL SECARA GLOBAL */
         body { font-family: 'Google Sans', sans-serif; background: var(--bg); margin: 0; padding: 10px; color: #1f1f1f; font-size: 13px; }
         .container { max-width: 580px; margin: 0 auto; padding-bottom: 60px; }
 
-        /* HEADER LEBIH RINGKAS */
         .app-header { text-align: center; margin-bottom: 12px; }
         .app-header h1 { color: var(--primary); margin: 0; font-size: 18px; display: flex; align-items: center; justify-content: center; gap: 6px; }
         .badge { background: #d1e4ff; color: #001d36; padding: 2px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; }
 
-        /* CARD LEBIH COMPACT (PADDING DIKURANGI) */
         .card { background: var(--surface); border-radius: 12px; padding: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); margin-bottom: 10px; border: 1px solid #eef2f6; }
         .card-title { font-size: 13px; font-weight: bold; color: var(--primary); margin-bottom: 8px; display: block; }
 
-        /* INPUTS LEBIH PENDEK */
         .input-row { display: flex; gap: 8px; margin-bottom: 8px; }
         .m-input { width: 100%; padding: 8px 10px; border: 1px solid var(--outline); border-radius: var(--radius); outline: none; font-family: inherit; transition: 0.2s; font-size: 13px; height: 36px; box-sizing: border-box; }
         .m-input:focus { border-color: var(--primary); border-width: 2px; padding: 7px 9px; }
 
-        /* BUTTONS LEBIH KECIL */
         .btn { border: none; cursor: pointer; height: 36px; border-radius: var(--radius); font-weight: 500; display: flex; align-items: center; justify-content: center; padding: 0 16px; font-family: inherit; font-size: 13px; }
         .btn-primary { background: var(--primary); color: white; width: 100%; }
         .btn-icon { background: transparent; color: #ba1a1a; width: 32px; height: 32px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .btn-icon:hover { background: #ffeceb; }
         .btn-tonal { background: #dbe4f0; color: #001d36; font-size: 11px; height: 28px; padding: 0 12px; }
 
-        /* ORDER LIST (UI SEPERTI REQUEST TAPI LEBIH RAPET) */
         .order-item {
             border: 1px solid #e0e0e0; border-radius: 8px; padding: 8px 12px; margin-bottom: 6px;
             background: #fff; display: flex; justify-content: space-between; align-items: flex-start;
@@ -59,18 +53,13 @@
         .order-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0; }
         .price-text { font-weight: bold; font-size: 13px; color: var(--primary); width: 80px; text-align: right; border:none; outline:none; background: transparent;}
 
-        /* HISTORY SECTION */
-        .history-controls { display: flex; gap: 8px; margin-top: 8px; }
         .history-list { margin-top: 8px; max-height: 150px; overflow-y: auto; display: none; }
         .history-item { padding: 8px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
-        .history-item:last-child { border: none; }
         
-        /* SUMMARY TABLE (COMPACT) */
         table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
         th { text-align: left; color: #666; font-size: 10px; text-transform: uppercase; padding: 4px; border-bottom: 1px solid #eee; }
         td { padding: 6px 4px; border-bottom: 1px solid #eee; vertical-align: middle; }
 
-        /* STATS BOX */
         .stats-box { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 12px; }
         .stat { padding: 8px; border-radius: 8px; color: white; text-align: center; }
         .bg-o { background: linear-gradient(135deg, #FFB74D, #F57C00); }
@@ -82,7 +71,7 @@
             .no-print { display: none !important; } 
             .card { box-shadow: none; border: 1px solid #ddd; padding: 5px; margin-bottom: 5px; break-inside: avoid; } 
             .order-item { padding: 5px; margin-bottom: 4px; border: 1px solid #eee; }
-            .input-row, .btn { display: none; } /* Sembunyikan input saat print */
+            .input-row, .btn { display: none; }
             h1 { font-size: 16px; }
         }
     </style>
@@ -93,7 +82,7 @@
 
     <div class="app-header">
         <h1><span class="material-symbols-rounded" style="font-size:20px;">lunch_dining</span> Nitip Makan Pro</h1>
-        <span class="badge">V15 Compact</span>
+        <span class="badge">V15 Fixed</span>
     </div>
 
     <div class="card no-print">
@@ -117,7 +106,6 @@
                 <span class="material-symbols-rounded" style="font-size:14px; margin-right:4px;">delete_sweep</span> Reset
             </button>
         </div>
-        
         <div id="loading" style="text-align:center; color:#888; font-size:11px;">Memuat data...</div>
         <div id="orderList"></div>
     </div>
@@ -134,40 +122,25 @@
         </table>
 
         <div class="stats-box">
-            <div class="stat bg-o">
-                <div style="font-size:9px; opacity:0.8">TAGIHAN</div>
-                <div style="font-size:13px; font-weight:bold;" id="txtTotalBill">0</div>
-            </div>
-            <div class="stat bg-g">
-                <div style="font-size:9px; opacity:0.8">TERKUMPUL</div>
-                <div style="font-size:13px; font-weight:bold;" id="txtTotalPaid">0</div>
-            </div>
-            <div class="stat bg-b">
-                <div style="font-size:9px; opacity:0.8">SISA</div>
-                <div style="font-size:13px; font-weight:bold;" id="txtTotalChange">0</div>
-            </div>
+            <div class="stat bg-o"><div style="font-size:9px; opacity:0.8">TAGIHAN</div><div style="font-size:13px; font-weight:bold;" id="txtTotalBill">0</div></div>
+            <div class="stat bg-g"><div style="font-size:9px; opacity:0.8">TERKUMPUL</div><div style="font-size:13px; font-weight:bold;" id="txtTotalPaid">0</div></div>
+            <div class="stat bg-b"><div style="font-size:9px; opacity:0.8">SISA</div><div style="font-size:13px; font-weight:bold;" id="txtTotalChange">0</div></div>
         </div>
     </div>
 
     <div class="card no-print" style="background: #fff8e1; border: 1px solid #ffe082;">
         <label class="card-title" style="color:#f57c00;"><span class="material-symbols-rounded" style="vertical-align:middle; font-size:14px;">history</span> Simpan & Riwayat</label>
-        
         <div class="input-row" style="margin-bottom:0;">
-            <input type="text" class="m-input" id="historyTitle" placeholder="Judul Sesi (ex: Makan Siang)" style="background:white; font-size:12px;">
+            <input type="text" class="m-input" id="historyTitle" placeholder="Judul Sesi" style="background:white; font-size:12px;">
             <button class="btn btn-primary" onclick="saveHistory()" style="background:#f57c00; white-space:nowrap; font-size:12px;">Simpan</button>
         </div>
-
-        <button class="btn btn-tonal" style="width:100%; margin-top:8px; height:28px;" onclick="toggleHistory()">
-            Buka Riwayat
-        </button>
-
+        <button class="btn btn-tonal" style="width:100%; margin-top:8px; height:28px;" onclick="toggleHistory()">Buka Riwayat</button>
         <div id="historyListContainer" class="history-list"></div>
     </div>
 
     <div class="card no-print" style="background:#e8def8; display:flex; align-items:center; gap:8px; padding:8px;">
         <span class="material-symbols-rounded" style="font-size:18px;">credit_card</span>
-        <input type="text" id="rekInfo" placeholder="Info Rekening (Klik untuk edit)..." oninput="saveRek()" 
-            style="border:none; background:transparent; width:100%; font-weight:bold; color:#1d192b; outline:none; font-size:12px;">
+        <input type="text" id="rekInfo" placeholder="Info Rekening..." oninput="saveRek()" style="border:none; background:transparent; width:100%; font-weight:bold; color:#1d192b; outline:none; font-size:12px;">
     </div>
 
     <div class="no-print" style="text-align:center; display:flex; gap:8px; justify-content:center;">
@@ -175,33 +148,22 @@
         <button class="btn btn-tonal" style="background:#ba1a1a; color:white;" onclick="downloadPDF()">PDF</button>
         <button class="btn btn-tonal" onclick="window.print()">Print</button>
     </div>
-
 </div>
 
 <script>
-    // --- SUPABASE CONFIG ---
     const SUPABASE_URL = 'https://ramoxhufekztfngfwiwm.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_czTPuVoyDqvlxOdpHrgwaw_iSnDhgsP';
-
     const { createClient } = supabase;
     const db = createClient(SUPABASE_URL, SUPABASE_KEY);
-    
     let globalOrders = [];
 
-    // --- HELPERS ---
     const formatRupiah = (el) => { let v=el.value.replace(/[^0-9]/g,''); el.value=v?parseInt(v).toLocaleString('id-ID'):""; };
-    const cleanNum = (v) => typeof v==='number'?v:parseFloat(v?.replace(/\./g,'')||0);
+    const cleanNum = (v) => typeof v==='number'?v:parseFloat(v?.toString().replace(/\./g,'')||0);
     const autoResize = (el) => { el.style.height='auto'; el.style.height=el.scrollHeight+'px'; };
 
-    // --- CORE ---
     async function fetchOrders() {
-        const { data, error } = await db.from('orders').select('*').order('name', {ascending:true}).order('created_at', {ascending:true});
-        if(data) {
-            globalOrders = data;
-            renderList();
-            renderSummary();
-            document.getElementById('loading').style.display = 'none';
-        }
+        const { data } = await db.from('orders').select('*').order('name', {ascending:true}).order('created_at', {ascending:true});
+        if(data) { globalOrders = data; renderList(); renderSummary(); document.getElementById('loading').style.display = 'none'; }
     }
 
     db.channel('any').on('postgres_changes', {event:'*', schema:'public', table:'orders'}, fetchOrders).subscribe();
@@ -212,7 +174,6 @@
         const note = document.getElementById('inNote').value;
         const price = cleanNum(document.getElementById('inPrice').value);
         if(!name || !item) return alert("Isi nama dan menu!");
-        
         await db.from('orders').insert({name, item, note, price});
         document.getElementById('inItem').value=''; document.getElementById('inNote').value=''; document.getElementById('inPrice').value=''; document.getElementById('inItem').focus();
     });
@@ -221,11 +182,9 @@
     window.delOrder = async (id) => { if(confirm("Hapus?")) await db.from('orders').delete().eq('id', id); };
     window.resetAll = async () => { if(confirm("Reset semua?")) await db.from('orders').delete().neq('id', 0); };
 
-    // --- RENDER LIST (COMPACT UI) ---
     function renderList() {
         const c = document.getElementById('orderList'); c.innerHTML='';
         if(globalOrders.length===0) return c.innerHTML='<div style="text-align:center; padding:10px; color:#999; font-size:11px;">Belum ada pesanan.</div>';
-
         globalOrders.forEach(o => {
             const div = document.createElement('div');
             div.className = 'order-item';
@@ -237,17 +196,13 @@
                 </div>
                 <div class="order-right">
                     <input type="text" class="price-text" value="${o.price.toLocaleString('id-ID')}" onkeyup="formatRupiah(this)" onchange="updateData(${o.id},'price',cleanNum(this.value))">
-                    <button class="btn-icon no-print" style="width:24px; height:24px;" onclick="delOrder(${o.id})">
-                        <span class="material-symbols-rounded" style="font-size:16px;">delete</span>
-                    </button>
-                </div>
-            `;
+                    <button class="btn-icon no-print" onclick="delOrder(${o.id})"><span class="material-symbols-rounded" style="font-size:16px;">delete</span></button>
+                </div>`;
             c.appendChild(div);
-            setTimeout(()=>{ autoResize(div.querySelector('.item-text')); autoResize(div.querySelector('.note-text')); },50);
+            setTimeout(()=> { autoResize(div.querySelector('.item-text')); autoResize(div.querySelector('.note-text')); }, 50);
         });
     }
 
-    // --- SUMMARY (STATUS YANG JELAS) ---
     window.renderSummary = function() {
         const tax = parseFloat(document.getElementById('taxInput').value)||0;
         const tb = document.getElementById('summaryBody'); tb.innerHTML='';
@@ -256,33 +211,21 @@
         globalOrders.forEach(o => {
             let k=o.name.toLowerCase();
             if(!grp[k]) grp[k]={name:o.name, t:0, p:0, ids:[]};
-            grp[k].t+=o.price; grp[k].p+=(o.paid||0); grp[k].ids.push(o.id);
+            grp[k].t+=o.price; 
+            grp[k].p+=o.paid||0; 
+            grp[k].ids.push(o.id);
         });
 
         for(let k in grp) {
             let p=grp[k], bill=p.t*(1+tax/100);
             tBill+=bill; tPaid+=p.p;
-            
-            // LOGIKA STATUS BARU (JELAS)
             let diff = p.p - bill;
-            let sts = '-';
-            
-            if(p.p > 0) {
-                if(diff >= 0) {
-                    // Uang Pas atau Lebih
-                    sts = `<span style="color:green; font-weight:bold; font-size:11px;">Kembali Rp ${diff.toLocaleString('id-ID')}</span>`;
-                } else {
-                    // Uang Kurang
-                    sts = `<span style="color:red; font-weight:bold; font-size:11px;">Kurang Rp ${Math.abs(diff).toLocaleString('id-ID')}</span>`;
-                }
-            } else {
-                sts = `<span style="color:#ccc; font-size:11px;">Belum Bayar</span>`;
-            }
+            let sts = (p.p > 0) ? (diff >= 0 ? `<span style="color:green; font-weight:bold; font-size:11px;">Kembali Rp ${diff.toLocaleString('id-ID')}</span>` : `<span style="color:red; font-weight:bold; font-size:11px;">Kurang Rp ${Math.abs(diff).toLocaleString('id-ID')}</span>`) : `<span style="color:#ccc; font-size:11px;">Belum Bayar</span>`;
             
             tb.innerHTML += `<tr>
                 <td>${p.name}</td>
                 <td align="right">${bill.toLocaleString('id-ID')}</td>
-                <td align="right"><input type="text" value="${p.p>0?p.p.toLocaleString('id-ID'):''}" style="width:55px; text-align:right; border:1px solid #ddd; border-radius:4px; font-size:11px; padding:2px;" onkeyup="formatRupiah(this)" onchange="upPay('${grp[k].ids}',cleanNum(this.value))"></td>
+                <td align="right"><input type="text" value="${p.p > 0 ? p.p.toLocaleString('id-ID') : ''}" style="width:65px; text-align:right; border:1px solid #ddd; border-radius:4px; font-size:11px; padding:2px;" onkeyup="formatRupiah(this)" onchange="upPay('${p.ids.join(',')}', cleanNum(this.value))"></td>
                 <td align="center">${sts}</td>
             </tr>`;
         }
@@ -290,51 +233,47 @@
         document.getElementById('txtTotalPaid').innerText = tPaid.toLocaleString('id-ID');
         document.getElementById('txtTotalChange').innerText = (tPaid-tBill).toLocaleString('id-ID');
     }
-    window.upPay = async (ids, val) => { for(let id of ids.split(',')) await db.from('orders').update({paid:val}).eq('id',id); fetchOrders(); };
 
-    // --- HISTORY ---
+    // --- FIX: LOGIKA BAYAR DIBAGI RATA ---
+    window.upPay = async (idsString, totalPaid) => {
+        const ids = idsString.split(',');
+        const splitValue = totalPaid / ids.length;
+        for(let id of ids) {
+            await db.from('orders').update({paid: splitValue}).eq('id', id);
+        }
+        fetchOrders();
+    };
+
     async function saveHistory() {
         const title = document.getElementById('historyTitle').value;
         if(!title || globalOrders.length===0) return alert("Data kosong!");
-        const snapshot = JSON.stringify(globalOrders);
-        const total = cleanNum(document.getElementById('txtTotalBill').innerText);
-        const { error } = await db.from('history_sessions').insert({ title, orders_snapshot: globalOrders, total_bill: total });
-        if(error) alert("Gagal: "+error.message);
-        else { alert("Disimpan!"); document.getElementById('historyTitle').value=''; loadHistoryList(); }
+        await db.from('history_sessions').insert({ title, orders_snapshot: globalOrders, total_bill: cleanNum(document.getElementById('txtTotalBill').innerText) });
+        alert("Disimpan!"); document.getElementById('historyTitle').value='';
     }
 
-    async function toggleHistory() {
-        const el = document.getElementById('historyListContainer');
-        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
-        if(el.style.display === 'block') loadHistoryList();
-    }
+    window.toggleHistory = () => { const el=document.getElementById('historyListContainer'); el.style.display=(el.style.display==='block'?'none':'block'); if(el.style.display==='block') loadHistoryList(); };
 
     async function loadHistoryList() {
         const { data } = await db.from('history_sessions').select('*').order('created_at', {ascending:false});
         const c = document.getElementById('historyListContainer'); c.innerHTML = '';
-        if(!data || data.length===0) return c.innerHTML='<div style="padding:10px; color:#999">Kosong.</div>';
-        data.forEach(h => {
+        data?.forEach(h => {
             const div = document.createElement('div');
             div.className = 'history-item';
-            div.innerHTML = `<div><strong>${h.title}</strong><br><span style="color:#888;">${new Date(h.created_at).toLocaleDateString()}</span></div>
-                <div style="display:flex; gap:4px;"><button class="btn btn-tonal" style="height:24px; font-size:10px;" onclick="loadSnapshot(${h.id})">Load</button>
-                <button class="btn-icon" style="width:24px; height:24px;" onclick="delHistory(${h.id})"><span class="material-symbols-rounded" style="font-size:14px;">delete</span></button></div>`;
+            div.innerHTML = `<div><strong>${h.title}</strong><br><small>${new Date(h.created_at).toLocaleDateString()}</small></div>
+                <button class="btn btn-tonal" onclick="loadSnapshot(${h.id})">Load</button>`;
             c.appendChild(div);
         });
     }
 
     window.loadSnapshot = async (id) => {
-        if(!confirm("Timpah data sekarang?")) return;
+        if(!confirm("Timpah data?")) return;
         const { data } = await db.from('history_sessions').select('orders_snapshot').eq('id', id).single();
         if(data) {
             await db.from('orders').delete().neq('id', 0);
-            const items = data.orders_snapshot.map(o => ({ name: o.name, item: o.item, note: o.note, price: o.price, paid: o.paid || 0 }));
-            await db.from('orders').insert(items);
+            await db.from('orders').insert(data.orders_snapshot.map(o => ({name:o.name, item:o.item, note:o.note, price:o.price, paid:o.paid||0})));
         }
     };
-    window.delHistory = async (id) => { if(confirm("Hapus?")) { await db.from('history_sessions').delete().eq('id', id); loadHistoryList(); }};
 
-    // --- UTILS ---
     window.saveRek = () => localStorage.setItem('rek', document.getElementById('rekInfo').value);
     if(localStorage.getItem('rek')) document.getElementById('rekInfo').value = localStorage.getItem('rek');
     
@@ -343,14 +282,11 @@
         let grp={};
         globalOrders.forEach(o=>{ let k=o.name.toLowerCase(); if(!grp[k])grp[k]={n:o.name,i:[],t:0}; grp[k].i.push(`${o.item} (${o.price/1000}k)`); grp[k].t+=o.price; });
         for(let k in grp) txt+=`*${grp[k].n}*: ${grp[k].t.toLocaleString('id-ID')}\n  ${grp[k].i.join(', ')}\n`;
-        txt+=`\n*TOTAL: ${document.getElementById('txtTotalBill').innerText}*`;
-        if(document.getElementById('rekInfo').value) txt+=`\nBayar: ${document.getElementById('rekInfo').value}`;
+        txt+=`*TOTAL: ${document.getElementById('txtTotalBill').innerText}*\nRek: ${document.getElementById('rekInfo').value}`;
         navigator.clipboard.writeText(txt).then(()=>alert("Disalin!"));
     };
     window.downloadPDF = () => html2pdf().from(document.getElementById('app')).save('Rekap.pdf');
-    
     fetchOrders();
 </script>
-
 </body>
 </html>
